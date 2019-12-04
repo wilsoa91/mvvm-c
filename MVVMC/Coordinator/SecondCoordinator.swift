@@ -1,5 +1,5 @@
 //
-//  FirstCoordinator.swift
+//  SecondCoordinator.swift
 //  MVVMC
 //
 //  Created by Andrew Wilson-Jones on 04/12/2019.
@@ -8,26 +8,20 @@
 
 import UIKit
 
-class FirstCoordinator: Coordinator {
+class SecondCoordinator: Coordinator {
     weak var parentCoordinator: MainCoordinator?
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
-
-    var saveString:String = ""
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
 
     func start() {
-        print("FirstCoordinator start")
-        let vc = FirstViewController.instantiate()
+        print("SecondCoordinator start")
+        let vc = SecondViewController.instantiate()
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
 
-    func viewControllerPopped(saveString:String){
-        print("FirstCoordinator viewControllerPopped")
-        self.saveString = saveString
-    }
 }

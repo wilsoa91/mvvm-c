@@ -22,6 +22,7 @@
 		8D9ADAD12397CC330056A62F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9ADAD02397CC330056A62F /* Coordinator.swift */; };
 		8D9ADAD32397CC960056A62F /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9ADAD22397CC960056A62F /* Storyboarded.swift */; };
 		8DD7EBCA2397F220000AB342 /* FirstCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD7EBC92397F220000AB342 /* FirstCoordinator.swift */; };
+		8DD7EBCC2397FE6C000AB342 /* SecondCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD7EBCB2397FE6C000AB342 /* SecondCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		8D9ADAD02397CC330056A62F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		8D9ADAD22397CC960056A62F /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		8DD7EBC92397F220000AB342 /* FirstCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCoordinator.swift; sourceTree = "<group>"; };
+		8DD7EBCB2397FE6C000AB342 /* SecondCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 				8D9ADAD02397CC330056A62F /* Coordinator.swift */,
 				8D0389132397CEAD00B0C3F3 /* MainCoordinator.swift */,
 				8DD7EBC92397F220000AB342 /* FirstCoordinator.swift */,
+				8DD7EBCB2397FE6C000AB342 /* SecondCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D9ADAA22397CBC00056A62F /* MainViewController.swift in Sources */,
+				8DD7EBCC2397FE6C000AB342 /* SecondCoordinator.swift in Sources */,
 				8D0389142397CEAD00B0C3F3 /* MainCoordinator.swift in Sources */,
 				8D9ADA9E2397CBC00056A62F /* AppDelegate.swift in Sources */,
 				8D03891A2397EAEF00B0C3F3 /* SecondViewController.swift in Sources */,

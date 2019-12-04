@@ -12,13 +12,21 @@ class FirstViewController: UIViewController, Storyboarded {
 
     weak var coordinator: FirstCoordinator?
 
+    @IBAction func dismissBtnTapped(_ sender: Any) {
+        print("FirstViewController dismissBtnTapped")
+        dismiss()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         print("FirstViewController viewDidLoad")
+        title = "FirstViewController"
     }
 
-//    override func viewDidDisappear(_ animated: Bool) {
-//        coordinator?.viewControllerDismissed()
-//    }
+    func dismiss(){
+        print("FirstViewController dismiss")
+        coordinator?.viewControllerPopped(saveString: "TESTING")
+        navigationController?.popViewController(animated: true)
+    }
 
 }

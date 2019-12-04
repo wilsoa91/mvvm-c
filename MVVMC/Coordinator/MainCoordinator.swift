@@ -12,10 +12,13 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
 
+    // MARK: Coordinator Setup
+
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
 
+    /**Create coordinator and respective ViewController, and push onto navigationController*/
     func start() {
         print("MainCoordinator start")
         let vc = MainViewController.instantiate()
@@ -24,6 +27,9 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
         navigationController.delegate = self
     }
 
+    // MARK: ViewController Navigation
+
+    /**Navigate to FirstViewController by creating and starting a FirstCoordinator*/
     func goToFirstVC() {
         print("MainCoordinator goToFirstVC")
         let child = FirstCoordinator(navigationController: navigationController)
@@ -32,23 +38,16 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
         child.start()
     }
 
+    /**Navigate to SecondViewController by creating and starting a SecondCoordinator*/
     func goToSecondVC() {
         print("MainCoordinator goToSecondVC")
-        let vc = SecondViewController.instantiate()
-        vc.coordinator = self
-        navigationController.pushViewController(vc, animated: true)
+        let child = SecondCoordinator(navigationController: navigationController)
+        childCoordinators.append(child)
+        child.parentCoordinator = self
+        child.start()
     }
 
-    func childDidFinish(_ child: Coordinator?) {
-        print("MainCoordinator childDidFinish")
-        for (index, coordinator) in childCoordinators.enumerated() {
-            if coordinator === child {
-                childCoordinators.remove(at: index)
-                break
-            }
-        }
-    }
-
+    /**When app navigation occurs, check which ViewController we have left and then call childDidFinish on its coordinator*/
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         print("MainCoordinator navigationController")
         // Read the view controller we’re moving from.
@@ -61,10 +60,25 @@ class MainCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
             return
         }
 
-        // We’re still here – it means we’re popping the view controller, so we can check whether it’s a buy view controller
+        // We’re still here – it means we’re popping the view controller, so we can check whether it’s a first view controller
         if let firstViewController = fromViewController as? FirstViewController {
-            // We're popping a buy view controller; end its coordinator
+            // We're popping a first view controller; end its coordinator
+            print("saveString is: " + firstViewController.coordinator!.saveString)
             childDidFinish(firstViewController.coordinator)
+        }else if let secondViewController = fromViewController as? SecondViewController{
+            childDidFinish(secondViewController.coordinator)
+        }
+
+    }
+
+    /**Called when a child coordinator's ViewController is being dismissed. Remove child coordinator from our array*/
+    private func childDidFinish(_ child: Coordinator?) {
+        print("MainCoordinator childDidFinish")
+        for (index, coordinator) in childCoordinators.enumerated() {
+            if coordinator === child {
+                childCoordinators.remove(at: index)
+                break
+            }
         }
     }
 }

@@ -10,11 +10,12 @@ import UIKit
 
 class SecondViewController: UIViewController, Storyboarded {
 
-    weak var coordinator: MainCoordinator?
+    weak var coordinator: SecondCoordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print("SecondViewController viewDidLoad")
+        title = "SecondViewController"
     }
 
 }

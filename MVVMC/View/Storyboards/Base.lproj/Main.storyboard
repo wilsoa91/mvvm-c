@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,17 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fqt-je-JEL">
-                                <rect key="frame" x="192" y="375" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fqt-je-JEL">
+                                <rect key="frame" x="192" y="433" width="30" height="30"/>
                                 <state key="normal" title="First"/>
                                 <connections>
                                     <action selector="firstTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ggd-EW-7sW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zrw-Yu-8gx">
-                                <rect key="frame" x="181" y="433" width="52" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zrw-Yu-8gx">
+                                <rect key="frame" x="181" y="483" width="52" height="30"/>
                                 <state key="normal" title="Second"/>
                                 <connections>
                                     <action selector="secondTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yFt-KD-jFO"/>
@@ -33,12 +32,19 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Fqt-je-JEL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Cbd-HN-l3s"/>
+                            <constraint firstItem="Zrw-Yu-8gx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EyU-CI-5Nu"/>
+                            <constraint firstItem="Fqt-je-JEL" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="HCS-wq-zOp"/>
+                            <constraint firstItem="Zrw-Yu-8gx" firstAttribute="top" secondItem="Fqt-je-JEL" secondAttribute="bottom" constant="20" id="YmW-nY-TSi"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Prp-gR-pah"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="138"/>
+            <point key="canvasLocation" x="1042.0289855072465" y="137.94642857142856"/>
         </scene>
         <!--First View Controller-->
         <scene sceneID="olL-ro-O5g">
@@ -55,6 +61,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZW4-Qq-ZrD">
+                                <rect key="frame" x="177" y="511" width="52" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="dismiss"/>
+                                <connections>
+                                    <action selector="dismissBtnTapped:" destination="JAo-dk-6c9" eventType="touchUpInside" id="oks-7P-wmz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="nbO-Sg-tpa"/>
@@ -62,7 +76,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bRi-na-Ybd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1090" y="-171"/>
+            <point key="canvasLocation" x="2000.0000000000002" y="-171.42857142857142"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="mCG-bk-Q48">
@@ -86,7 +100,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0qO-E5-Elb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1090" y="491"/>
+            <point key="canvasLocation" x="2000.0000000000002" y="490.84821428571428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9dJ-uP-y4o">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2xV-sY-qN8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7Nh-gz-VXq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="qMF-5v-to9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JRP-TJ-Mbh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="137.94642857142856"/>
         </scene>
     </scenes>
 </document>
