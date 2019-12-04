@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SecondViewController.swift
 //  MVVMC
 //
 //  Created by Andrew Wilson-Jones on 04/12/2019.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SecondViewController: UIViewController, Storyboarded {
+
+    weak var coordinator: MainCoordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        print("SecondViewController viewDidLoad")
     }
 
-
 }
-

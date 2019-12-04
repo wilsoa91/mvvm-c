@@ -12,21 +12,51 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    // Moved to SceneDelegate in iOS13. Reinstated for iOS 12 compatibility.
+    var window: UIWindow?
 
+    var coordinator: MainCoordinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        // If we are running less than iOS 13, build coordinator here
+        if #available(iOS 13.0, *) {} else {
+            buildCoordinatoriOS12()
+        }
+
         return true
+    }
+
+    // iOS 12 version of the similar method from SceneDelegate
+    func buildCoordinatoriOS12(){
+        print("buildCoordinatoriOS12")
+        // create the main navigation controller to be used for our app
+        let navController = UINavigationController()
+
+        // send that into our coordinator so that it can display view controllers
+        coordinator = MainCoordinator(navigationController: navController)
+
+        // tell the coordinator to take over control
+        coordinator?.start()
+
+        // create a basic UIWindow and activate it
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = navController
+        window?.makeKeyAndVisible()
     }
 
     // MARK: UISceneSession Lifecycle
 
+    // @available added for iOS 12 compatibility
+    @available(iOS 13.0, *)
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 
+    // @available added for iOS 12 compatibility
+    @available(iOS 13.0, *)
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
